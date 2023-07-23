@@ -9,7 +9,7 @@ module.exports = {
       let userData;
       for (const user of users) {
           if (user.username === username){
-            userData = {...user}// userData = user   this will give error when the same user logs in the second time as the pwd will get deleted. as we will be deleting the pwd from userdata before sending it to front end you want to create a new pbject and just dont want ro juse = to it or point to it, then when we delete it, it will delete it from the user obj too 
+            userData = {...user}// userData = user  here, we are not making a new copy, rather pointing it the same reference. This will give error when the same user logs in the second time as the pwd will get deleted. as we will be deleting the pwd from userData before sending it to front end you want to create a new object and just don't want to use = to it or point to it, then when we delete it, it will delete it from the user obj too 
             console.log("user found");
           }
       }
@@ -65,7 +65,7 @@ module.exports = {
     }        
       
   }
-// you can also do a asynch method for login too 
+// you can also do a async method for login too 
 // bcryptjs.compare(password, userData.password, ((err,result)=> {
 //   if (err) {
     // Handle the error
